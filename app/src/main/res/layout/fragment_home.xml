@@ -1,6 +1,6 @@
-<!-- res/layout/fragment_home.xml -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,7 +11,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/design_default_color_primary"
         android:padding="8dp">
 
         <!-- App Name as Title -->
@@ -20,9 +19,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Shopping"
-            android:textSize="20sp"
+            android:textSize="40sp"
             android:textStyle="bold"
-            android:textColor="@android:color/white" />
+            android:textColor="@color/black" />
 
         <!-- Profile Button (on the right) -->
         <ImageView
@@ -30,9 +29,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_profile"
-            android:tint="@android:color/white"
+            android:tint="@color/black"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="16dp"
+            android:layout_marginTop="18dp"
             android:contentDescription="Profile"
             tools:ignore="UseAppTint" />
 
@@ -42,27 +42,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_search"
-            android:tint="@android:color/white"
+            android:tint="@color/black"
             android:layout_toStartOf="@id/profileButton"
+            android:layout_marginTop="18dp"
             android:layout_marginEnd="16dp"
             android:contentDescription="Search"
             tools:ignore="UseAppTint" />
 
     </RelativeLayout>
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
-        android:layout_height="50dp"
-        android:background="@drawable/rounded_border">
+        android:layout_height="50dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="search" />
+            android:hint="Search" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Scrollable Grid Layout for Shopping Tiles -->
-
+    <!-- Image Carousel (ViewPager2) -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/imageCarousel"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -120,53 +125,7 @@
                     android:textSize="16sp" />
             </LinearLayout>
 
-            <!-- Tile 3 -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="8dp">
-
-                <ImageView
-                    android:id="@+id/imageTile3"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_tile1"
-                    android:contentDescription="Tile 3 Image" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Category 3"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <!-- Tile 4 -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:padding="8dp">
-
-                <ImageView
-                    android:id="@+id/imageTile4"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/ic_tile1"
-                    android:contentDescription="Tile 4 Image" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Category 4"
-                    android:textSize="16sp" />
-            </LinearLayout>
-
-            <!-- Add more tiles as needed in a similar structure -->
+            <!-- More tiles can go here -->
 
         </GridLayout>
     </ScrollView>
